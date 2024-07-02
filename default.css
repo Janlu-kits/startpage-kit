@@ -135,10 +135,10 @@
 }
 
 /* Positions */
-.top { top: 12px; position: absolute; }
-.bottom { bottom: 12px; position: absolute; }
-.left { left: 12px; position: absolute; }
-.right { right: 12px; position: absolute; }
+.top { top: 12pt; position: absolute; }
+.bottom { bottom: 12pt; position: absolute; }
+.left { left: 12pt; position: absolute; }
+.right { right: 12pt; position: absolute; }
 
 /* Browser Default overwrites */
 * {
@@ -148,6 +148,12 @@
 
 html {
     background: var(--background);
+    padding: 0;
+    margin: 0;
+}
+body {
+    padding: 0;
+    margin: 0;
 }
 
 div {
@@ -209,14 +215,16 @@ a.button:hover {
 .container {
     position: absolute;
     min-width: fit-content;
+    padding: 0pt;
+    margin: 0pt;
 }
 
-.container#topleft      { top: 12pt; align-items: start; left: 0pt; justify-content: start; }
+.container#topleft      { top: 12pt; align-items: start; left: 12pt; justify-content: start; }
 .container#top          { width: 100%; top: 12pt; align-items: start; justify-content: center; }
-.container#topright     { top: 12pt; align-items: start; right: 0pt; justify-content: end; }
-.container#left         { height: 100%; align-items: center; left: 0pt; justify-content: start; }
+.container#topright     { top: 12pt; align-items: start; right: 12pt; justify-content: end; }
+.container#left         { height: 100%; align-items: center; left: 12pt; justify-content: start; }
 .container#center       { width: 100%; height: 100%; align-items: center; justify-content: center; }
-.container#right        { height: 100%; align-items: center; right: 0pt; justify-content: end; }
-.container#bottomleft   { bottom: 12pt; align-items: end; left: 0pt; justify-content: start; }
+.container#right        { height: 100%; align-items: center; right: 12pt; justify-content: end; }
+.container#bottomleft   { bottom: 12pt; align-items: end; left: 12pt; justify-content: start; }
 .container#bottom       { width: 100%; bottom: 12pt; align-items: end; justify-content: center; }
-.container#bottomright  { bottom: 12pt; align-items: end; right: 0pt; justify-content: end; }
+.container#bottomright  { bottom: 12pt; align-items: end; right: 12pt; justify-content: end; }
