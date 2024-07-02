@@ -1,14 +1,26 @@
 const mainpage = document.getElementById("mainpage");
 
+function appendDocument(object, pos = "center") {
+    if (object === null) {
+        console.error("No object was defined.")
+        return "error";
+    }
+    if (["topleft", "top", "topright", "left", "center", "right", "bottomleft", "bottom", "bottomright"].includes(pos)) {
+        document.getElementById(pos).append(object);
+    } else {
+        console.warn(pos + " is not a valid position. Defaultling to center.")
+        document.getElementById("center").append(object);
+    }
+}
+
 class ShortcutContainer {
-    constructor(shortcuts = Array, id = String, direction = String, styleType = String, wrapperVisibility = Boolean, hpos = String, vpos = String) {
+    constructor(shortcuts = Array, id = String, direction = String, styleType = String, wrapperVisibility = Boolean, position = String) {
         this.shortcuts = shortcuts;
         this.id = id;
         this.direction = direction;
         this.styleType = styleType;
         this.wrapperVisibility = wrapperVisibility;
-        this.hpos = hpos;
-        this.vpos = vpos;
+        this.position = position;
     }
 
     build() {
@@ -40,12 +52,7 @@ class ShortcutContainer {
             }
         } 
 
-        if (this.hpos !== String && this.vpos !== String ) {
-            if (this.hpos == "left") { wrapper.classList.add("left") }
-            else if (this.hpos == "right") { wrapper.classList.add("right") }
-            if (this.hpos == "up") { wrapper.classList.add("up") }
-            else if (this.hpos == "down") { wrapper.classList.add("down") }
-        }
+        
 
         // Add links
         for (let i = 0; i < this.shortcuts.length; i++) {
@@ -66,19 +73,18 @@ class ShortcutContainer {
 
             wrapper.append(text);
         }
-        mainpage.append(wrapper);
+        appendDocument(wrapper, this.position);
         return;
     }
 }
 
-function classic() {
+function classic(pos) {
     var shortcuts = new ShortcutContainer()
     shortcuts.shortcuts = ["www.youtube.com", ["Maps", "https://maps.google.com/"], "www.you215tube.com", "w125ww.youtube.com"];
     shortcuts.id = "containerXD"
     shortcuts.direction = "h";
     shortcuts.styleType = "button";
     shortcuts.wrapperVisibility = true;
-    shortcuts.hpos = "right";
-    shortcuts.vpos = "bottom";
+    shortcuts.position = pos;//"center";
     shortcuts.build()
 }
